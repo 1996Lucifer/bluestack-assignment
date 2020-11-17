@@ -17,15 +17,15 @@ void main() {
 class MyApp extends StatelessWidget {
   final controller = Get.put(LoginController());
   final homeController = Get.put(HomeController());
-  // bool isLoggedIn=false;
   SharedPreferences prefs;
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
         onInit: () async {
           prefs = await SharedPreferences.getInstance();
-          controller.isLoggedIn = prefs.getBool("isLoggedIn")??false;
-          Get.updateLocale(prefs.getString("lang") == "en"
+    print(prefs.getString("lang"));
+          controller.isLoggedIn = prefs.getBool("isLoggedIn") ?? false;
+          Get.updateLocale(prefs.getString("lang") == null ||prefs.getString("lang") == "en"
               ? Locale('en', 'US')
               : Locale('ja', 'JP'));
         },

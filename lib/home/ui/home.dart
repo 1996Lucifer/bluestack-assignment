@@ -31,7 +31,11 @@ class HomePage extends StatelessWidget {
                 value: 1,
                 child: Row(
                   children: [
-                    Icon(Icons.power_settings_new,color: Colors.black,),
+                    Icon(
+                      Icons.power_settings_new,
+                      color: Colors.black,
+                    ),
+                    Padding(padding: EdgeInsets.only(left: 5)),
                     Text("logout".tr),
                   ],
                 )),
@@ -39,7 +43,8 @@ class HomePage extends StatelessWidget {
                 value: 2,
                 child: Row(
                   children: [
-                    Icon(Icons.language_rounded,color: Colors.black),
+                    Icon(Icons.language_rounded, color: Colors.black),
+                    Padding(padding: EdgeInsets.only(left: 5)),
                     Text("language_settings".tr),
                   ],
                 )),
@@ -85,6 +90,8 @@ class HomePage extends StatelessWidget {
                                     mainAxisSize: MainAxisSize.min,
                                     children: <Widget>[
                                       ListTile(
+                                        onTap: () => homeController
+                                            .selectedLanguage(Language.English),
                                         title: Text('english'.tr),
                                         selected: homeController.language ==
                                             Language.English,
@@ -96,6 +103,9 @@ class HomePage extends StatelessWidget {
                                         ),
                                       ),
                                       ListTile(
+                                        onTap: () =>
+                                            homeController.selectedLanguage(
+                                                Language.Japanese),
                                         title: Text('japanese'.tr),
                                         selected: homeController.language ==
                                             Language.Japanese,
@@ -116,6 +126,7 @@ class HomePage extends StatelessWidget {
                                 ),
                                 onPressed: () async {
                                   prefs = await SharedPreferences.getInstance();
+                                  print(prefs.getString("lang"));
                                   Get.updateLocale(
                                       prefs.getString("lang") == "en"
                                           ? Locale('en', 'US')
