@@ -6,7 +6,6 @@ import 'package:app_developer_assignment/login/ui/login.dart';
 import 'package:app_developer_assignment/main.dart';
 import 'package:app_developer_assignment/utils/globals.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:progress_dialog/progress_dialog.dart';
 import 'package:shared_preferences/shared_preferences.dart';

@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
         onInit: () async {
           prefs = await SharedPreferences.getInstance();
-          controller.isLoggedIn = prefs.getBool("isLoggedIn");
+          controller.isLoggedIn = prefs.getBool("isLoggedIn")??false;
           Get.updateLocale(prefs.getString("lang") == "en"
               ? Locale('en', 'US')
               : Locale('ja', 'JP'));

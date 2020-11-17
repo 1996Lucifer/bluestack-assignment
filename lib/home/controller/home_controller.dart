@@ -38,6 +38,7 @@ class HomeController extends GetxController {
       language = Language.Japanese;
     else
       language = Language.English;
+    update();
   }
 
   _userDetails() async {
